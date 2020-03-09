@@ -1,0 +1,13 @@
+com\tradeai\supplierservice\data\SupplierRepository.class
+com\tradeai\supplierservice\datamodel\SupplierAccount.class
+com\tradeai\supplierservice\ui\model\response\SupplierOnlyResponse.class
+com\tradeai\supplierservice\ui\model\request\SupplierRequest.class
+com\tradeai\supplierservice\service\SupplierService.class
+com\tradeai\supplierservice\controller\SupplierAccountController.class
+com\tradeai\supplierservice\ui\model\response\SupplierAccountResponse.class
+com\tradeai\supplierservice\data\SupplierAccountRepository.class
+com\tradeai\supplierservice\datamodel\Supplier.class
+com\tradeai\supplierservice\ui\model\response\SupplierResponse.class
+com\tradeai\supplierservice\SupplierServiceApplication.class
+com\tradeai\supplierservice\controller\SupplierController.class
+com\tradeai\supplierservice\service\SupplierServiceImpl.class
