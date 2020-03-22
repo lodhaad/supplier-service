@@ -3,10 +3,17 @@ package com.tradeai.supplierservice.service;
 import java.util.List;
 
 import com.tradeai.supplierservice.datamodel.Supplier;
+import com.tradeai.supplierservice.datamodel.SupplierAccount;
+import com.tradeai.supplierservice.dto.SupplierAccountDTO;
+import com.tradeai.supplierservice.dto.SupplierDTO;
 
 public interface SupplierService {
 	
-	public Supplier getSupplier(String supplierId);
-	public List<Supplier> getSuppliers();
+	public SupplierDTO getSupplier(String supplierId);
+	
+	public List<SupplierAccountDTO> getAllAccountsOfSupplier();
+	
+	
+	public List<SupplierDTO> getSuppliers();
 
 }

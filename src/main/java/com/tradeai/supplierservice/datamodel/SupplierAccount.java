@@ -23,7 +23,8 @@ public class SupplierAccount {
 	@Column (name = "acct_id")
 	private String accountId;
 	
-
+	@Column (name = "supplier_id")
+	private String supplierId;
 
 	
 	@Column (name = "acct_name")
@@ -41,9 +42,7 @@ public class SupplierAccount {
 	@Column (name = "acct_valid_to")
 	private Date validTo;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="supplier_id", nullable=false)
-	private Supplier relatedSupplier;
+
 
 	public String getAccountId() {
 		return accountId;
@@ -53,7 +52,7 @@ public class SupplierAccount {
 		this.accountId = accountId;
 	}
 	
-	/*
+	
 
 	public String getSupplierId() {
 		return supplierId;
@@ -63,7 +62,7 @@ public class SupplierAccount {
 		this.supplierId = supplierId;
 	}
 	
-	*/
+	
 
 	public String getAccountName() {
 		return accountName;
@@ -105,13 +104,8 @@ public class SupplierAccount {
 		this.validTo = validTo;
 	}
 
-	public Supplier getRelatedSupplier() {
-		return relatedSupplier;
-	}
 
-	public void setRelatedSupplier(Supplier supplier) {
-		this.relatedSupplier = supplier;
-	}
+
 	
 	
 

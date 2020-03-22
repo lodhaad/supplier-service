@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tradeai.supplierservice.data.SupplierAccountRepository;
 import com.tradeai.supplierservice.data.SupplierRepository;
 import com.tradeai.supplierservice.datamodel.Supplier;
+import com.tradeai.supplierservice.datamodel.SupplierAccount;
+import com.tradeai.supplierservice.dto.SupplierAccountDTO;
+import com.tradeai.supplierservice.dto.SupplierDTO;
 
 
 
@@ -23,22 +27,42 @@ public class SupplierServiceImpl implements SupplierService {
 	private SupplierAccountRepository supplyAccountRepository;
 
 	@Override
-	public Supplier getSupplier(String supplierId) {
+	public SupplierDTO getSupplier(String supplierId) {
+		
+		Supplier supplier = repository.findById(supplierId).get();
+		
+		ModelMapper mapper = new ModelMapper();
+		SupplierDTO dto = mapper.map(supplier, SupplierDTO.class);
 
-		return repository.findById(supplierId).get();
+		return dto;
 	}
 
 	@Override
-	public List<Supplier> getSuppliers() {
+	public List<SupplierDTO> getSuppliers() {
 
-		List<Supplier> listOfSuppliers = new ArrayList<>();
+		List<SupplierDTO> listOfSuppliers = new ArrayList<>();
 		
 		Iterable<Supplier> iterable = repository.findAll();
 		
-		iterable.forEach(listOfSuppliers::add);
+		iterable.forEach( element -> {
+			
+			ModelMapper mapper = new ModelMapper();
+			SupplierDTO dto = mapper.map(element, SupplierDTO.class);
+			listOfSuppliers.add(dto);
+			
+		});
+				
+
+
 				
 		
 		return listOfSuppliers;
+	}
+
+	@Override
+	public List<SupplierAccountDTO> getAllAccountsOfSupplier() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

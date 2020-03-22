@@ -39,33 +39,7 @@ public class Supplier {
 	@Column (name = "supplier_email")
 	private String supplierEmail;
 	
-	@OneToMany(mappedBy="relatedSupplier",
-			cascade = CascadeType.ALL,
-	        orphanRemoval = true)
-	
-	private List<SupplierAccount> accounts = new ArrayList<>();
-	
-	
-	
-	 public List<SupplierAccount> getAccounts() {
-		return accounts;
-	}
 
-	public void setAccounts(List<SupplierAccount> accounts) {
-		this.accounts = accounts;
-	}
-
-	public void addAccount(SupplierAccount account) {
-		 accounts.add(account);
-		 account.setRelatedSupplier(this);
-	    }
-	 
-	    public void removeAccount(SupplierAccount account) {
-	    	accounts.remove(account);
-	        account.setRelatedSupplier(null);
-	    }
-	
-	
 	public String getSupplierId() {
 		return supplierId;
 	}
