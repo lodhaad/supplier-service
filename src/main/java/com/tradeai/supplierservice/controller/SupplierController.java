@@ -30,8 +30,18 @@ public class SupplierController {
 
 	@Autowired
 	private SupplierService service;
+	
+	
+	@GetMapping (path = "/health")
+	
+	public String checkServiceUp() {
+		return "Hello Supplier";
+	}
+	
+	
+	
 
-	@GetMapping(path = "/{supplierId}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "/{supplierId}")
 	public ResponseEntity<SupplierOnlyResponse> getSupplier(@PathVariable String supplierId) {
 
 		SupplierOnlyResponse response = getSupplierInformation(supplierId);
@@ -40,7 +50,7 @@ public class SupplierController {
 
 	}
 
-	@GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "")
 	public ResponseEntity<List<SupplierOnlyResponse>> getSuppliers() {
 
 		List<SupplierOnlyResponse> response = getAllSuppliersInfo();
