@@ -14,23 +14,22 @@ import com.tradeai.supplierservice.datamodel.Supplier;
 import com.tradeai.supplierservice.datamodel.SupplierAccount;
 import com.tradeai.supplierservice.dto.SupplierAccountDTO;
 import com.tradeai.supplierservice.dto.SupplierDTO;
-
-
+import com.tradeai.supplierservice.dto.SupplierProfileDTO;
 
 @Service
 public class SupplierServiceImpl implements SupplierService {
-	
+
 	@Autowired
 	private SupplierRepository repository;
-	
+
 	@Autowired
 	private SupplierAccountRepository supplyAccountRepository;
 
 	@Override
 	public SupplierDTO getSupplier(String supplierId) {
-		
+
 		Supplier supplier = repository.findById(supplierId).get();
-		
+
 		ModelMapper mapper = new ModelMapper();
 		SupplierDTO dto = mapper.map(supplier, SupplierDTO.class);
 
@@ -41,26 +40,28 @@ public class SupplierServiceImpl implements SupplierService {
 	public List<SupplierDTO> getSuppliers() {
 
 		List<SupplierDTO> listOfSuppliers = new ArrayList<>();
-		
+
 		Iterable<Supplier> iterable = repository.findAll();
-		
-		iterable.forEach( element -> {
-			
+
+		iterable.forEach(element -> {
+
 			ModelMapper mapper = new ModelMapper();
 			SupplierDTO dto = mapper.map(element, SupplierDTO.class);
 			listOfSuppliers.add(dto);
-			
+
 		});
-				
 
-
-				
-		
 		return listOfSuppliers;
 	}
 
 	@Override
 	public List<SupplierAccountDTO> getAllAccountsOfSupplier() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SupplierProfileDTO getSupplierProfile(String supplierId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
